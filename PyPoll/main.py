@@ -6,8 +6,9 @@ vote_count1=0
 vote_count2=0
 vote_count3=0
 vote_count4=0
+winner=""
 
-csvpath='/Users/doodl/Desktop/UCDSAC201902DATA4/03-Python/Homework/Instructions/PyPoll/Resources/election_data.csv' 
+csvpath='/Users/doodl/Desktop/UCDSAC201902DATA4/03-Python/Homework/Instruction/PyPoll/Resources/election_data.csv' 
 
 with open(csvpath, 'r') as csvfile:
 
@@ -16,8 +17,6 @@ with open(csvpath, 'r') as csvfile:
     csv_header = next(csvfile)
 
     candidates=["Khan","Correy","Li","O'Tooley"]
-
-    print(f"Header: {csv_header}")
 
     for row in csvreader:
 
@@ -33,17 +32,28 @@ with open(csvpath, 'r') as csvfile:
 
         else:
             vote_count4=vote_count4+1
-if vote_count
 
-percent1=(vote_count1/count)*100
-percent2=(vote_count2/count)*100
-percent3=(vote_count3/count)*100
-percent4=(vote_count4/count)*100
+percent1=round((vote_count1/count)*100,2)
+percent2=round((vote_count2/count)*100,2)
+percent3=round((vote_count3/count)*100,2)
+percent4=round((vote_count4/count)*100,2)
+
+if (percent1>percent2) and (percent1>percent3) and (percent1>percent4):
+    winner=candidates[0]
+elif (percent2>percent1) and (percent2>percent3) and (percent2>percent4):
+    winner=candidates[1]
+elif (percent3>percent1) and (percent3>percent2) and (percent3>percent4):
+    winner=candidates[2]
+else:
+    winner=candidates[3]
+    
+    
 
 print ("Election Results")
 print("---------------------")
 print(f"Total votes: {count}")
-print(f"{candidates[0]}: {percent1} ({vote_count1})")
-print(f"{candidates[1]}: {percent2} ({vote_count2})")
-print(f"{candidates[2]}: {percent3} ({vote_count3})")
-print(f"{candidates[3]}: {percent4} ({vote_count4})")
+print(f"{candidates[0]}: {percent1}% ({vote_count1})")
+print(f"{candidates[1]}: {percent2}% ({vote_count2})")
+print(f"{candidates[2]}: {percent3}% ({vote_count3})")
+print(f"{candidates[3]}: {percent4}% ({vote_count4})")
+print(f"Winner is {winner}")
