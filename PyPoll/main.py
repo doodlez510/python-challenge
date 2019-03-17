@@ -9,7 +9,7 @@ vote_count4=0
 winner=""
 
 csvpath='/Users/doodl/Desktop/UCDSAC201902DATA4/03-Python/Homework/Instruction/PyPoll/Resources/election_data.csv' 
-
+file_to_output='/Users/doodl/Desktop/UCDSAC201902DATA4/03-Python/Homework/Instruction/PyPoll/Resources/election_data.txt'
 with open(csvpath, 'r') as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=',')
@@ -57,3 +57,20 @@ print(f"{candidates[1]}: {percent2}% ({vote_count2})")
 print(f"{candidates[2]}: {percent3}% ({vote_count3})")
 print(f"{candidates[3]}: {percent4}% ({vote_count4})")
 print(f"Winner is {winner}")
+
+with open(file_to_output, "w") as txt_file:
+    txt_file.write("Election Results")
+    txt_file.write("\n")
+    txt_file.write("---------------------")
+    txt_file.write("\n")
+    txt_file.write(f"Total votes: {count}")
+    txt_file.write("\n")
+    txt_file.write(f"{candidates[0]}: {percent1}% ({vote_count1})")
+    txt_file.write("\n")
+    txt_file.write(f"{candidates[1]}: {percent2}% ({vote_count2})")
+    txt_file.write("\n")
+    txt_file.write(f"{candidates[2]}: {percent3}% ({vote_count3})")
+    txt_file.write("\n")
+    txt_file.write(f"{candidates[3]}: {percent4}% ({vote_count4})")
+    txt_file.write("\n")
+    txt_file.write(f"Winner is {winner}")

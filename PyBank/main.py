@@ -14,7 +14,7 @@ max_profit= 0
 prev_profit =0
 
 csvpath= '/Users/doodl/Desktop/UCDSAC201902DATA4/03-Python/Homework/Instruction/PyBank/Resources/budget_data.csv'
-
+file_to_output='/Users/doodl/Desktop/UCDSAC201902DATA4/03-Python/Homework/Instruction/PyBank/Resources/budget_data.txt'
 with open(csvpath,'r') as csvfile:
     
     csvreader =csv.reader(csvfile, delimiter=',')
@@ -63,6 +63,21 @@ with open(csvpath,'r') as csvfile:
     print(f"Total months: ${count}")
     print(f"Total: {total}")
     print(f"Average Change: ${average}")
-    print(f"Greatest Increase in Profits: {max_date} (${biggest_difference})")
-    print(f"Greatest Decrease in Profits: {min_date} (${smallest_difference})")
+    print(f"Greatest Increase in Profits: {max_date} (${biggest_difference}")
+    print(f"Greatest Decrease in Profits: {min_date} (${smallest_difference,1}")
     
+with open(file_to_output, "w") as txt_file:
+    txt_file.write("Financial Analysis")
+    txt_file.write("\n")
+    txt_file.write("--------------------------")
+    txt_file.write("\n")
+    txt_file.write(f"Total months: ${count}")
+    txt_file.write("\n")
+    txt_file.write(f"Total: {total}")
+    txt_file.write("\n")
+    txt_file.write(f"Average Change: ${average}")
+    txt_file.write("\n")
+    txt_file.write(f"Greatest Increase in Profits: {max_date} (${biggest_difference}")
+    txt_file.write("\n")
+    txt_file.write(f"Greatest Decrease in Profits: {min_date} (${smallest_difference}")
+    txt_file.write("\n")
