@@ -9,7 +9,7 @@ vote_count4=0
 winner=""
 
 csvpath='/Users/doodl/Desktop/UCDSAC201902DATA4/03-Python/Homework/Instruction/PyPoll/Resources/election_data.csv' 
-file_to_output='/Users/doodl/Desktop/UCDSAC201902DATA4/03-Python/Homework/Instruction/PyPoll/Resources/election_data.txt'
+file_to_output='/Users/doodl/Desktop/python-challenge/PyPoll/election_data.txt'
 with open(csvpath, 'r') as csvfile:
 
     csvreader = csv.reader(csvfile, delimiter=',')
